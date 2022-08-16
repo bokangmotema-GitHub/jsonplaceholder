@@ -1,23 +1,26 @@
 import supertest from 'supertest';
 const  request = supertest ('https://jsonplaceholder.typicode.com/');
+import {expect} from 'chai';
 
 
-// Searching for all Users and get user id
 describe('users', () =>{
+    
+    // Searching for all Users and get user id
     it('GET /users', () =>{
-        request
-        .get('users').end((err, res) =>{
-            console.log(err);
-            console.log(res.body);
+        // Handle async behavior
+       return request.get('users').then((res) =>{
+            expect(res.body).to.be.not.empty; 
+            //  console.log(res.body);
         });
     });
-
-    // Search for username "Delphine" using Id
+    
+    // Test Searching for specific username "Delphine" using user id
     it('GET /users/:id', () =>{
-        request
-        .get('users/9').end((err, res) =>{
-            console.log(err);
-            console.log(res.body);
-        });
-    });
+
+        // Handle async behavior
+        return request.get('users/9').then((res) =>{
+             expect(res.body.id).to.be.eq(9); 
+            //  console.log(res.body);
+         });
+    }); 
 });
