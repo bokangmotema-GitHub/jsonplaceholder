@@ -16,13 +16,13 @@
   "homepage": "http://jsonplaceholder.typicode.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/typicode/jsonplaceholder.git"
+    "url": "git+https://github.com/typicode/jsonplaceholder.git"
   },
   "scripts": {
     "build": "node build",
     "build:watch": "nodemon --watch build.js --watch templates -e js,md,html build.js",
     "start": "node index",
-    "test": "node test/app"
+    "test": "mocha"
   },
   "dependencies": {
     "clone": "^2.1.2",
@@ -30,8 +30,15 @@
     "marked": "^0.8.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/node": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/register": "^7.18.9",
+    "chai": "^4.3.6",
     "Faker": "~0.7.2",
     "husky": "^4.2.2",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.2",
     "pupa": "^2.0.1",
     "rosie": "~2.0.1",
@@ -48,5 +55,13 @@
     "hooks": {
       "pre-commit": "npm test"
     }
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/typicode/jsonplaceholder/issues"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
