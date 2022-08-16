@@ -5,22 +5,35 @@ import {expect} from 'chai';
 
 describe('users', () =>{
     
-    // Searching for all Users and get user id
-    it('GET /users', () =>{
+    /**
+     * Searching for all Users and get user id
+     * And Adding the Async Handler
+     */
+    it('GET /users', async () =>{
         // Handle async behavior
-       return request.get('users').then((res) =>{
-            expect(res.body).to.be.not.empty; 
-            //  console.log(res.body);
-        });
+       const res = await request.get('users');
+        expect(res.body).to.be.not.empty;
+    });
+
+    /**
+     * Writng a Negative/Failing Test fetch empty users
+     * Thsi is to test if the Terminal will fail as expect fro negative tests
+     * And Tests are passing sucessfull. 
+     */
+    it('GET /users with failing Test', async () =>{
+        // Handle async behavior
+       const res = await request.get('users');
+        expect(res.body).to.be.empty;
     });
     
-    // Test Searching for specific username "Delphine" using user id
-    it('GET /users/:id', () =>{
+    /**
+     * Test Searching for specific username "Delphine" using user id
+     * And Adding the Async Handler
+     */
+    it('GET /users/:id', async () =>{
 
         // Handle async behavior
-        return request.get('users/9').then((res) =>{
-             expect(res.body.id).to.be.eq(9); 
-            //  console.log(res.body);
-         });
-    }); 
+        const res = await request.get('users/9');
+        expect(res.body.id).to.be.eq(9);
+    });
 });
