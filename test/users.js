@@ -25,29 +25,6 @@ describe('users', () => {
     });
 
     /**
-     * Writng a Negative/Failing Test fetch empty users
-     * Thsi is to test if the Terminal will fail as expect fro negative tests
-     * And Tests are passing sucessfull. 
-     */
-    // it('GET /users with failing Test', async () =>{
-    //     // Handle async behavior
-    //    const res = await request.get('users');
-    //     expect(res.body).to.be.empty;
-    // });
-
-    /**
-     * Searching for specific username "Delphine" using user id=9
-     * And Adding the Async Handler
-     */
-    // it('GET /users/:id', async () => {
-
-    //     // Handle async behavior
-    //     const res = await request.get('users/9');
-    //     expect(res.body.id).to.be.eq(9);
-    //     console.log(res.body);
-    // });
-
-    /**
     * Searching for specific username "Delphine"
     * And Adding the Async Handler
     */
